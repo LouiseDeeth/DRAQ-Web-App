@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 4000;
+const port = 4000; // port 4000 as required
 
 //error handling to catch any server errors
 app.use((err, req, res, next) => {
