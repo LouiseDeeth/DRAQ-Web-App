@@ -13,7 +13,7 @@
   }
 }
 
-.App-header {
+.App-Header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -35,4 +35,16 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.header {
+  text-align: center;
+  color: rgb(68, 68, 137);
+  font-family: Arial, sans-serif; 
+  margin-top: 20px; 
+}
+
+.custom-navbar {
+  background-color: #09b0ce;
+  color: white;
 }
