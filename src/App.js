@@ -1,11 +1,11 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import NavigationBar from './components/navbar';
-import Header from './components/header';
-import Footer from './components/footer';
+import NavigationBar from './components/Navbar';
+import Header from './components/Header';
+import Footer from './components/Footer';
 import Content from './components/Content';
 import Read from './components/Read';
 import Create from './components/Create';
-import Edit from './components/edit';
+import Edit from './components/Edit';
 
 //added links in navbar to routes
 //Updated the App so that it display the Footer component when the URL changes to localhost:3000/read 
@@ -16,9 +16,9 @@ function App() {
       <NavigationBar />
       <Routes>
         <Route path="/home" element={<Content />} />
-        <Route path="/read" element={<Read/>} />
-        <Route path="/create" element={<Create />} />
-        <Route path='/edit/:id' element={<Edit />} />
+        <Route path="/Read" element={<Read/>} />
+        <Route path="/Create" element={<Create />} />
+        <Route path='/Edit/:id' element={<Edit />} />
       </Routes>
       <Footer />
     </Router>
