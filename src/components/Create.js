@@ -31,7 +31,7 @@ const Create = () => {
       .catch((err) => console.log(err.data));
   };
   return (
-    <div>
+    <div className="create-container">
       <br />
       <h3>Please enter the following details :</h3>
       <br />
@@ -153,7 +153,7 @@ const Create = () => {
         <br />
 
         <div>
-          <input type="submit" value="Add Recipe" />
+          <input type="submit" value="Add Recipe" className="btn" />
         </div>
       </form>
     </div>

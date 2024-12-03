@@ -18,6 +18,15 @@
   gap: 30px;
 }
 
+.footer {
+  background-color: #282c34;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 14px;
+  margin-top: 30px;
+}
+
 .custom-navbar {
   background-color: #09b0ce;
   color: white;
@@ -43,6 +52,30 @@
   display: block;
 }
 
-h3 {
-  text-align: center;
+.btn {
+  background-color: #28b0c8 !important;
+  color: white;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: linear-gradient(45deg, #017b9b, #09b0ce);
+  transform: scale(1.05);
+}
+
+.create-container {
+  padding-left: 20px;
+}
+
+.nav-link-custom {
+  font-size: 18px !important;
+  font-weight: bold !important;
+  color: black !important;
+  padding: 1px 20px !important;
+}
+
+.nav-link-custom:hover {
+  color: white !important;
+  transform: scale(1.1);
 }
