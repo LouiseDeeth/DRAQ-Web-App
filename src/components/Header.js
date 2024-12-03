@@ -3,7 +3,7 @@ import logo from '../logo.svg';
 
 const Header = () => {
   return (
-    <h1 className="header" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '20px' }}>
+    <h1 className="header">
       <img
         src={logo} 
         alt="Logo"
@@ -11,7 +11,7 @@ const Header = () => {
         height="40" 
         className="d-inline-block align-top"
       />
-      My Favourite Recipes
+      My Recipes
       <img
         src={logo} 
         alt="Logo"

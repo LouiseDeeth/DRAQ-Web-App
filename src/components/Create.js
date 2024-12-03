@@ -32,8 +32,9 @@ const Create = () => {
   };
   return (
     <div>
+      <br />
       <h3>Please enter the following details :</h3>
-      <br></br>
+      <br />
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label className="bold-label">Enter Recipe name: </label>
@@ -43,7 +44,7 @@ const Create = () => {
             onChange={(e) => { setTitle(e.target.value) }}
           />
         </div>
-        <br></br>
+        <br />
         <div className="form-group">
           <label className="bold-label">Enter Picture URL: </label>
           <input type="text"
@@ -52,7 +53,7 @@ const Create = () => {
             onChange={(e) => { setPicture(e.target.value) }}
           />
         </div>
-        <br></br>
+        <br />
         <div className="form-group">
           <label className="bold-label">Enter Ingredients: </label>
           <input type="text"
@@ -61,7 +62,7 @@ const Create = () => {
             onChange={(e) => { setIngredients(e.target.value) }}
           />
         </div>
-        <br></br>
+        <br />
         <div className="form-group">
           <label className="bold-label">Enter Method: </label>
           <input type="text"
@@ -70,7 +71,7 @@ const Create = () => {
             onChange={(e) => { setMethod(e.target.value) }}
           />
         </div>
-        <br></br>
+        <br />
         
         <div className="form-group">
           <label className="bold-label">Select Category/s: </label>
@@ -149,8 +150,8 @@ const Create = () => {
             </div>
           </div>
         </div>
-        <br></br>
-        
+        <br />
+
         <div>
           <input type="submit" value="Add Recipe" />
         </div>

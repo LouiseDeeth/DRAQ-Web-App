@@ -1,6 +1,7 @@
 import Recipes from "./Recipes";
 import { useEffect, useState } from "react";
 import axios from "axios";  
+import '../App.css';
 
 function Read() {
     const [recipes, setRecipes] = useState([]);

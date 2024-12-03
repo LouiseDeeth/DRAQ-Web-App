@@ -12,6 +12,10 @@
   color: rgb(68, 68, 137);
   font-family: Arial, sans-serif; 
   margin-top: 20px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
 }
 
 .custom-navbar {
@@ -37,4 +41,8 @@
   font-weight: bold;
   margin-bottom: 5px;
   display: block;
+}
+
+h3 {
+  text-align: center;
 }
