@@ -24,7 +24,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 const mongoose = require('mongoose');
-mongoose.connect('mongodb+srv://admin:admin@clusterdatareplab7.f2idw.mongodb.net/MyFirstDB');
+mongoose.connect('mongodb+srv://admin:admin@cluster0.uyx73.mongodb.net/recipes?retryWrites=true&w=majority&appName=Cluster0');
 
 const recipeSchema = new mongoose.Schema({
     title: { type: String, required: true },
@@ -51,8 +51,8 @@ app.put('/api/recipe/:id', async (req, res) => {
 
 app.post('/api/recipes', async (req, res) =>{
     console.log("Recipes: "+req.body.title);
-    const { title, year, poster } = req.body;
-    const newRecipe = new recipeModel({ title, year, poster });
+    const { title, picture, ingredients, method, category } = req.body;
+    const newRecipe = new recipeModel({ title, picture, ingredients, method, category });
     await newRecipe.save();
     res.status(201).json({ message: 'Recipe created successfully', recipe: newRecipe });
 })
