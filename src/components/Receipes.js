@@ -3,7 +3,7 @@ import ReceipeItem from "./ReceipeItem";
 function Receipe(props) {
     return (
         <>
-            {props.myReceipes.map((movie) => (
+            {props.myReceipes.map((Receipe) => (
                 <ReceipeItem
                     myReceipes={Receipe}
                     key={Receipe._id}
