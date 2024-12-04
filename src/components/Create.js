@@ -98,7 +98,7 @@ const Create = () => {
         <br />
         
         <div className="form-group">
-          <label className="bold-label">Select Category/s: </label>
+          <label className="bold-label">Select Categories: </label>
           <div className="checkbox-group">
             <div className="checkbox-item">
               <label>
