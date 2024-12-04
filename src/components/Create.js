@@ -7,7 +7,8 @@ const Create = () => {
   const [picture, setPicture] = useState('');
   const [ingredients, setIngredients] = useState([]);
   const [ingredientInput, setIngredientInput] = useState('');
-  const [method, setMethod] = useState('');
+  const [method, setMethod] = useState([]);
+  const [methodInput, setMethodInput] = useState("");
   const [category, setCategory] = useState([]);
 
   const handleCategoryChange = (e) => {
@@ -20,7 +21,7 @@ const Create = () => {
     }
   };
 
-  const handleAddIngredient = (e) => {
+  const handleAddIngredient = () => {
     if (ingredientInput.trim()) {
       setIngredients([...ingredients, ingredientInput]);
       setIngredientInput(''); //clear input box
@@ -31,6 +32,17 @@ const Create = () => {
     if (ingredientInput.trim()) {
       setIngredients(ingredients.filter((_, i) => i !== index)); //remove by index
     }
+  };
+
+  const handleAddMethod = () => {
+    if (methodInput.trim()) {
+      setMethod([...method, methodInput]);
+      setMethodInput(''); //clear input box
+    }
+  };
+
+  const handleRemoveMethod = (index) => {
+    setMethod(method.filter((_, i) => i !== index)); //remove by index
   };
 
   const handleSubmit = (e) => {
@@ -68,35 +80,53 @@ const Create = () => {
         <br />
         <div className="form-group">
           <label className="bold-label">Enter Ingredients: </label>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <input type="text"
-            className="form-control"
-            value={ingredientInput}
-            onChange={(e) => setIngredientInput(e.target.value) }
-            placeholder="Add an ingredient"
-          />
-        </div>
-        <button type='button' className="btn" onClick={handleAddIngredient}>Add</button>
+          <div className="input-group">
+            <input type="text"
+              className="form-control"
+              value={ingredientInput}
+              onChange={(e) => setIngredientInput(e.target.value)}
+              placeholder="Add an ingredient"
+            />
+            <button type='button' className="btn" onClick={handleAddIngredient}>Add</button>
+          </div>
         </div>
         <ul>
-            {ingredients.map((ingredient, index) => (
-              <li key={index} >
-                {ingredient}
-                <button type="button" onClick={() => handleRemoveIngredient(index)} style={{ marginLeft: '10px' }}>Remove</button>
+          {ingredients.map((ingredient, index) => (
+            <li key={index} >
+              {ingredient}
+              <button type="button" onClick={() => handleRemoveIngredient(index)} style={{ marginLeft: '10px' }}>Remove</button>
+            </li>
+          ))}
+        </ul>
+
+        <div className="form-group">
+          <label className="bold-label">Enter Instructions:</label>
+          <div className="input-group"> 
+            <input
+              type="text"
+              className="form-control"
+              value={methodInput}
+              onChange={(e) => setMethodInput(e.target.value)}
+              placeholder="Add a step"
+            />
+            <button type="button" className="btn" onClick={handleAddMethod}>Add</button>
+          </div>
+          <ol>
+            {method.map((step, index) => (
+              <li key={index}>
+                {step}
+                <button
+                  type="button"
+                  onClick={() => handleRemoveMethod(index)}
+                  style={{ marginLeft: "10px" }}
+                >
+                  Remove
+                </button>
               </li>
             ))}
-          </ul>
-        
-        <div className="form-group">
-          <label className="bold-label">Enter Instructions: </label>
-          <input type="text"
-            className="form-control"
-            value={method}
-            onChange={(e) => { setMethod(e.target.value) }}
-          />
+          </ol>
         </div>
-        <br />
-        
+
         <div className="form-group">
           <label className="bold-label">Select Categories: </label>
           <div className="checkbox-group">
@@ -174,8 +204,9 @@ const Create = () => {
             </div>
           </div>
         </div>
+        <br />
         <div>
-          <input type="submit" value="Add Recipe" className="btn" />
+          <input type="submit" value="Save Recipe" className="btn" />
         </div>
       </form >
     </div >
