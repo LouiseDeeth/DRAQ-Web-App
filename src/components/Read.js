@@ -12,7 +12,7 @@ function Read() {
       axios.get('http://localhost:4000/api/recipes') //this line runs async
           .then((response) => {
             console.log(response.data);
-            setRecipes(response.data.recipe);
+            setRecipes(response.data.recipes);
           })
           .catch((error) => {
               console.error("Error reloading data:", error);

@@ -5,12 +5,13 @@ import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 
 export default function Edit(props) {
-    let { id } = useParams();
-    const [title, setTitle] = useState(''); 
-    const [picture, setPicture] = useState(''); 
-    const [ingredients, setIngredients] = useState(''); 
-    const [method, setMethod] = useState(''); 
-    const [category, setCategory] = useState(''); 
+    const [title, setTitle] = useState('');
+    const [picture, setPicture] = useState('');
+    const [ingredients, setIngredients] = useState([]);
+    const [ingredientInput, setIngredientInput] = useState('');
+    const [method, setMethod] = useState([]);
+    const [methodInput, setMethodInput] = useState("");
+    const [category, setCategory] = useState([]);
 
     const navigate = useNavigate();
   
