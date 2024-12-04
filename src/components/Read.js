@@ -20,13 +20,12 @@ function Read() {
     };
   
     useEffect(() => {
-      //reload after delete
-      Reload();
+      Reload(); //reload after delete
     }, []);
   
     return (
       <div>
-        <h3>Recipe List</h3>
+        <h3>Recipes</h3>
         <Recipes myRecipes={recipes} ReloadData={Reload}/>
       </div>
     );
