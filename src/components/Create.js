@@ -57,7 +57,6 @@ const Create = () => {
             console.error('Error saving recipe:', error);
         });
   };
-
   return (
     <div className="create-container">
       <br />
@@ -75,7 +74,7 @@ const Create = () => {
         </div>
         <br />
         <div className="form-group">
-          <label className="bold-label">Enter Picture URL: </label>
+          <label className="bold-label">Enter Recipe Picture URL: </label>
           <input 
             type="text"
             className="form-control"
@@ -112,7 +111,7 @@ const Create = () => {
           ))}
         </ul>
         <div className="form-group">
-          <label className="bold-label">Enter Instructions:</label>
+          <label className="bold-label">Enter Step by Step Instructions:</label>
           <div className="input-group"> 
             <input
               type="text"
@@ -141,7 +140,7 @@ const Create = () => {
         <div className="form-group">
           <label className="bold-label">Select Categories: </label>
           <div className="checkbox-group">
-            {['Breakfast', 'Lunch', 'Dinner', 'Dessert', 'Vegetarian', 'Vegan', 'Cocktail', 'Favourites'].map((cat) => (
+            {['Breakfast', 'Vegetarian', 'Lunch', 'Vegan', 'Dinner', 'Cocktails', 'Dessert', 'Favourites'].map((cat) => (
               <div className="checkbox-item" key={cat}>
                 <label>
                   <input
