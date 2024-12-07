@@ -25,7 +25,7 @@ function Read() {
   
     return (
       <div>
-        <h3>Recipes</h3>
+        <h3>All Recipes</h3>
         <Recipes myRecipes={recipes} ReloadData={Reload}/>
       </div>
     );
