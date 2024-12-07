@@ -27,6 +27,10 @@ function Read() {
       <div>
         <h3>All Recipes</h3>
         <Recipes myRecipes={recipes} ReloadData={Reload}/>
+
+        <div style={{ marginTop: '50px', textAlign: 'center' }}>
+          <a href="#top" style={{ textDecoration: 'none', color: 'blue' }}>Back to Top</a>
+        </div>
       </div>
     );
   }
