@@ -24,7 +24,7 @@ function Read() {
     }, []);
   
     return (
-      <div>
+      <div className="read-container"> 
         <h3>All Recipes</h3>
         <Recipes myRecipes={recipes} ReloadData={Reload}/>
 

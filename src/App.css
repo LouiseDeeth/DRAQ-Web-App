@@ -86,8 +86,16 @@
   border-radius: 6px !important;
 }
 
-.create-container, .edit-container, .home-container {
+.create-container, .edit-container, .home-container{
   max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.read-container {
+  max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
   background-color: #f9f9f9;
