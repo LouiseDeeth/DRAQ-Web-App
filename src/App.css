@@ -54,6 +54,7 @@
 
 .btn {
   background-color: #28b0c8 !important;
+  color: black !important;
   border-radius: 6px;
   cursor: pointer !important;
   font-weight: bold !important;
@@ -119,4 +120,8 @@ li {
 
 h3 {
   text-align: center;
+}
+
+Card.Img {
+  height: 150px;
 }
