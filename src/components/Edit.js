@@ -75,7 +75,7 @@ export default function Edit(props) {
     }
 
     return (
-        <div>
+        <div className="edit-container">
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label className="bold-label">Enter Recipe name: </label>
