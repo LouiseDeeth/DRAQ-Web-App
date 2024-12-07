@@ -33,7 +33,7 @@ const RecipeItem = (props) => {
                     
                         {/* Left column */}
                         <div style={{ flex: '1', textAlign: 'center', maxWidth: '50%' }}>
-                        <Card.Img src={props.myRecipe.picture} alt={props.myRecipe.title} style={{ maxWidth: "100%", height: "auto", borderRadius: '10px' }}/>
+                        <Card.Img src={props.myRecipe.picture} alt={props.myRecipe.title} style={{ width: "100%", maxWidth: "300px", height: "auto", objectFit: "contain", borderRadius: '10px' }}/>
                         </div>
 
                         {/* Right column */}
