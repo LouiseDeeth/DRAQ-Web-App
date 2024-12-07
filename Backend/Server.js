@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 const mongoose = require('mongoose');
-mongoose.connect('mongodb+srv://admin:admin@cluster0.uyx73.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0');
+mongoose.connect('mongodb+srv://admin:admin@cluster0.uyx73.mongodb.net/recipes');
 
 const recipeSchema = new mongoose.Schema({
     title: { type: String, required: true },
@@ -33,6 +33,7 @@ const recipeModel = mongoose.model('myRecipes', recipeSchema);
 app.get('/api/recipes', async (req, res) => {
     try {
         const recipes = await recipeModel.find({});
+        console.log("Fetched Recipes:", recipes);
         res.status(200).json({ recipes });
     } catch (error) {
         res.status(500).json({ error: error.message });
@@ -59,8 +60,20 @@ app.put('/api/recipe/:id', async (req, res) => {
     }
 });
 
+app.get('/api/recipe/:id', async (req, res) => {
+    let recipe = await recipeModel.findById({ _id: req.params.id });
+    res.send(recipe);
+});
+
+app.put('/api/recipe/:id', async (req, res) => {
+    let recipe = await recipeModel.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    res.send(recipe);
+});
+
+//method to add new recipe records
 app.post('/api/recipes', async (req, res) => {
     try {
+        console.log('Received Data:', req.body);
         const { title, picture, ingredients, method, category } = req.body;
         const newRecipe = new recipeModel({ title, picture, ingredients, method, category });
         await newRecipe.save();

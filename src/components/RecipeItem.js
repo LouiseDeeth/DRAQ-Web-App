@@ -14,7 +14,7 @@ const RecipeItem = (props) => {
         axios.delete(`http://localhost:4000/api/recipe/${props.myRecipe._id}`)
             .then((res) => {
                 console.log('Recipe deleted:', res.data);
-                props.Reload(); // Refresh the recipe list
+                props.Reload(); // Refresh the recipe list  
             })
             .catch((error) => {
                 console.error('Error deleting recipe:', error);
@@ -22,40 +22,52 @@ const RecipeItem = (props) => {
     };
 
     return (
-        <div>
-            <Card style={{ width: '18rem', margin: '1rem auto' }}>
-                <Card.Body style={{ textAlign: 'center' }}>
-                    <Card.Title>{props.myRecipe.title}</Card.Title>
-                    <Card.Img 
-                        src={props.myRecipe.picture} 
-                        alt={props.myRecipe.title} 
-                        style={{ height: '150px', objectFit: 'cover', marginBottom: '10px' }}
-                    />
-                    <footer style={{ fontStyle: 'italic', marginBottom: '10px' }}>
-                        {props.myRecipe.category.join(', ')}
-                    </footer>
+        <div style={{ width: '80%', margin: '1rem auto' }}>
+            <Card>
+                <Card.Body>
+                    {/* Recipe Title */}
+                    <Card.Title style={{ textAlign: 'center'}} >{props.myRecipe.title}</Card.Title>
                     <hr />
-                    <div>
-                        <h6>Ingredients:</h6>
-                        <ul style={{ textAlign: 'left', paddingLeft: '20px' }}>
-                            {props.myRecipe.ingredients.map((ingredient, index) => (
-                                <li key={index}>{ingredient}</li>
-                            ))}
-                        </ul>
-                    </div>
+                    {/* Layout for picture and ingredients */}                    
+                    <div style={{ display:'flex', flexDirection: 'row', gap: '20px', alignItems: 'flex-start'}}>
+                    
+                        {/* Left column */}
+                        <div style={{ flex: '1', textAlign: 'center', maxWidth: '50%' }}>
+                        <Card.Img src={props.myRecipe.picture} alt={props.myRecipe.title} style={{ maxWidth: "100%", height: "auto", borderRadius: '10px' }}/>
+                        </div>
+
+                        {/* Right column */}
+                        <div style={{ flex: '2'}}>
+                            <h6 style={{ paddingLeft: '40px' }}>Ingredients:</h6>
+                            <ul style={{ paddingLeft: '20px' }}>
+                                {props.myRecipe.ingredients.map((ingredient, index) => (
+                                    <li key={index}>{ingredient}</li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>    
                     <hr />
+
+                    {/* Instructions */} 
                     <div>
                         <h6>Instructions:</h6>
-                        <ol style={{ textAlign: 'left', paddingLeft: '20px' }}>
+                        <ol style={{ paddingLeft: '20px' }}>
                             {props.myRecipe.method.map((step, index) => (
                                 <li key={index}>{step}</li>
                             ))}
                         </ol>
-                    </div>
+                    </div>     
+
+                    {/* Footer with categories */}
+                    <footer style={{ textAlign: 'center', fontStyle: 'italic', marginBottom: '10px' }}>
+                    <p>Categories: {props.myRecipe.category.join(', ')}</p>
+                    </footer>
                 </Card.Body>
-                <div style={{ display: 'flex', justifyContent: 'space-around', padding: '10px' }}>
-                    <Link to={`/edit/${props.myRecipe._id}`} className="btn btn-primary">Edit</Link>
-                    <Button variant="danger" onClick={handleDelete}>Delete</Button>
+
+                {/*Buttons*/}
+                <div style={{ display: 'flex', justifyContent: 'center', padding: '10px', gap: '30px' }}>
+                    <Link to={`/edit/${props.myRecipe._id}`} className='btn'>Edit</Link>
+                    <Button className='btn' onClick={(e)=>handleDelete(e, props.myRecipe._id)}>Delete</Button>
                 </div>
             </Card>
         </div>

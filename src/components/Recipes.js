@@ -1,13 +1,13 @@
 import RecipeItem from "./RecipeItem";
 
-function Recipes(props) {
+function Recipes({myRecipes, ReloadData}) {
     return (
         <>
-            {props.myRecipes.map((Recipe) => (
+            {myRecipes.map((recipe) => (
                 <RecipeItem
-                    myRecipes={Recipe}
-                    key={Recipe._id}
-                    Reload={props.ReloadData}
+                    myRecipe={recipe}
+                    key={recipe._id}
+                    Reload={ReloadData}
                 />
             ))}
         </>
