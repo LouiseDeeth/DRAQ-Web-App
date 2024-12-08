@@ -7,7 +7,8 @@ import '../App.css';
 
 export default function Edit(props) {
     let { id } = useParams();
-    console.log("Editing Recipe ID:", id);
+    //console.log("Editing Recipe ID:", id);
+
     const [title, setTitle] = useState('');
     const [picture, setPicture] = useState('');
     const [ingredients, setIngredients] = useState([]);
@@ -20,7 +21,7 @@ export default function Edit(props) {
     useEffect(() => {
         axios.get('http://localhost:4000/api/recipe/' + id)
             .then((response) => {
-                console.log("API Response:", response.data);
+                //console.log("API Response:", response.data);
                 setTitle(response.data.title);
                 setPicture(response.data.picture);
                 setIngredients(response.data.ingredients);
@@ -64,6 +65,7 @@ export default function Edit(props) {
         setMethod(method.filter((_, i) => i !== index)); // Remove by index
     };
 
+    // Handle submit of new recipe
     const handleSubmit = (event) => {
         event.preventDefault();
         const newRecipe = { id, title, picture, ingredients, method, category };
@@ -103,7 +105,7 @@ export default function Edit(props) {
                             className="form-control"
                             value={ingredientInput}
                             onChange={(e) => setIngredientInput(e.target.value)}
-                            placeholder="Add an ingredient"/>
+                            placeholder="Add an ingredient" />
                         <button type="button" className="btn" onClick={handleAddIngredient}>Add</button>
                     </div>
                 </div>
@@ -111,12 +113,7 @@ export default function Edit(props) {
                     {ingredients.map((ingredient, index) => (
                         <li key={index}>
                             {ingredient}
-                            <button
-                                type="button"
-                                onClick={() => handleRemoveIngredient(index)}
-                                style={{ marginLeft: '10px' }} >
-                                Remove
-                            </button>
+                            <button type="button" onClick={() => handleRemoveIngredient(index)} style={{ marginLeft: '10px' }} > Remove </button>
                         </li>
                     ))}
                 </ul>
@@ -156,7 +153,7 @@ export default function Edit(props) {
                                     <input
                                         type="checkbox"
                                         value={cat}
-                                        onChange={handleCategoryChange}
+                                        onChange={handleCategoryChange} // Updates the categories
                                     /> {cat}
                                 </label>
                             </div>

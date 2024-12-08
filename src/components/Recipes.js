@@ -1,6 +1,6 @@
 import RecipeItem from "./RecipeItem";
 
-function Recipes({myRecipes, ReloadData}) {
+function Recipes({ myRecipes, ReloadData }) {
     return (
         <>
             {myRecipes.map((recipe) => (

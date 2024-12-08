@@ -23,13 +23,14 @@ mongoose.connect('mongodb+srv://admin:admin@cluster0.uyx73.mongodb.net/recipes')
 const recipeSchema = new mongoose.Schema({
     title: { type: String, required: true },
     picture: { type: String, required: true },
-    ingredients: { type: [String], required: true },
-    method: { type: [String], required: true },
+    ingredients: { type: [String], required: true }, // Array for ingredients
+    method: { type: [String], required: true }, // Array for step-by-step instructions
     category: { type: [String], required: true }
-  });
+});
 
 const recipeModel = mongoose.model('myRecipes', recipeSchema);
 
+// Fetch all recipes
 app.get('/api/recipes', async (req, res) => {
     try {
         const recipes = await recipeModel.find({});
@@ -40,6 +41,7 @@ app.get('/api/recipes', async (req, res) => {
     }
 });
 
+// Get recipe by id
 app.get('/api/recipe/:id', async (req, res) => {
     try {
         const recipe = await recipeModel.findById(req.params.id);
@@ -50,6 +52,7 @@ app.get('/api/recipe/:id', async (req, res) => {
     }
 });
 
+// Update a recipe
 app.put('/api/recipe/:id', async (req, res) => {
     try {
         const recipe = await recipeModel.findByIdAndUpdate(req.params.id, req.body, { new: true });
@@ -60,17 +63,7 @@ app.put('/api/recipe/:id', async (req, res) => {
     }
 });
 
-app.get('/api/recipe/:id', async (req, res) => {
-    let recipe = await recipeModel.findById({ _id: req.params.id });
-    res.send(recipe);
-});
-
-app.put('/api/recipe/:id', async (req, res) => {
-    let recipe = await recipeModel.findByIdAndUpdate(req.params.id, req.body, { new: true });
-    res.send(recipe);
-});
-
-//method to add new recipe records
+// Method to create a new recipe
 app.post('/api/recipes', async (req, res) => {
     try {
         console.log('Received Data:', req.body);
@@ -88,6 +81,7 @@ app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
 
+// Delete a recipe
 app.delete('/api/recipe/:id', async (req, res) => {
     try {
         console.log('Deleting recipe with ID:', req.params.id);
@@ -101,6 +95,6 @@ app.delete('/api/recipe/:id', async (req, res) => {
 
 //error handling to catch any server errors
 app.use((err, req, res, next) => {
-    console.error(err.stack);
+    //console.error(err.stack);
     res.status(500).send('Something went wrong!');
 });

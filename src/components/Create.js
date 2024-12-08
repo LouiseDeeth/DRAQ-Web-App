@@ -49,13 +49,13 @@ const Create = () => {
     event.preventDefault();
     const newRecipe = { title, picture, ingredients, method, category };
     axios.post('http://localhost:4000/api/recipes', newRecipe)
-        .then((res) => {
-            console.log('Recipe saved:', res.data);
-            navigate('/read');
-        })
-        .catch((error) => {
-            console.error('Error saving recipe:', error);
-        });
+      .then((res) => {
+        console.log('Recipe saved:', res.data);
+        navigate('/read');
+      })
+      .catch((error) => {
+        console.error('Error saving recipe:', error);
+      });
   };
   return (
     <div className="create-container">
@@ -65,7 +65,7 @@ const Create = () => {
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label className="bold-label">Enter Recipe name: </label>
-          <input 
+          <input
             type="text"
             className="form-control"
             value={title}
@@ -75,7 +75,7 @@ const Create = () => {
         <br />
         <div className="form-group">
           <label className="bold-label">Enter Recipe Picture URL: </label>
-          <input 
+          <input
             type="text"
             className="form-control"
             value={picture}
@@ -86,7 +86,7 @@ const Create = () => {
         <div className="form-group">
           <label className="bold-label">Enter Ingredients: </label>
           <div className="input-group">
-            <input 
+            <input
               type="text"
               className="form-control"
               value={ingredientInput}
@@ -100,9 +100,9 @@ const Create = () => {
           {ingredients.map((ingredient, index) => (
             <li key={index}>
               {ingredient}
-              <button 
-                type="button" 
-                onClick={() => handleRemoveIngredient(index)} 
+              <button
+                type="button"
+                onClick={() => handleRemoveIngredient(index)}
                 style={{ marginLeft: '10px' }}
               >
                 Remove
@@ -112,7 +112,7 @@ const Create = () => {
         </ul>
         <div className="form-group">
           <label className="bold-label">Enter Step by Step Instructions:</label>
-          <div className="input-group"> 
+          <div className="input-group">
             <input
               type="text"
               className="form-control"
@@ -126,9 +126,9 @@ const Create = () => {
             {method.map((step, index) => (
               <li key={index}>
                 {step}
-                <button 
-                  type="button" 
-                  onClick={() => handleRemoveMethod(index)} 
+                <button
+                  type="button"
+                  onClick={() => handleRemoveMethod(index)}
                   style={{ marginLeft: '10px' }}
                 >
                   Remove
