@@ -153,6 +153,7 @@ export default function Edit(props) {
                                     <input
                                         type="checkbox"
                                         value={cat}
+                                        checked={category.includes(cat)}
                                         onChange={handleCategoryChange} // Updates the categories
                                     /> {cat}
                                 </label>
