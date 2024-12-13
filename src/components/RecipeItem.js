@@ -51,7 +51,7 @@ const RecipeItem = (props) => {
 
                     {/* Instructions */}
                     <div>
-                        <h6>Instructions:</h6>
+                    <h6 style={{ paddingLeft: '40px' }}>Instructions:</h6>
                         <ol style={{ paddingLeft: '20px' }}>
                             {props.myRecipe.method.map((step, index) => (
                                 <li key={index}>{step}</li>
